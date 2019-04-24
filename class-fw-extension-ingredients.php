@@ -1,8 +1,8 @@
 <?php if (!defined('FW')) die('Forbidden');
 
     class FW_Extension_Ingredients extends FW_Extension {
-        private $post_type = 'fw-ingredient';
-        private $post_slug = 'fw-ingredient';
+        private $post_type = 'ingredient';
+        private $post_slug = 'ingredient';
 
         public function get_post_type_name() {
             return $this->post_type;
@@ -12,9 +12,8 @@
             return $this->post_slug;
         }
 
-
         public function _init() {
-            if ( is_admin() ) $this->add_admin_filters(); $this->add_admin_actions();
+            if ( is_admin() ) $this->add_admin_filters(); $this->add_admin_actions();            
         }
 
         public function add_admin_actions() {
