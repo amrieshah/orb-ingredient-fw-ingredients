@@ -1,8 +1,9 @@
 <?php if (!defined('FW')) die('Forbidden');
 
     class FW_Extension_Ingredients extends FW_Extension {
-        private $post_type = 'ingredient';
-        private $post_slug = 'ingredient';
+        private $post_type      = 'ingredient';
+        private $post_slug      = 'ingredient';
+        private $taxonomy_name  = 'ingredient-category';
 
         public function get_post_type_name() {
             return $this->post_type;
@@ -10,6 +11,10 @@
         
         public function get_post_type_slug() {
             return $this->post_slug;
+        }
+
+        public function get_taxonomy_name() {
+            return $this->taxonomy_name;
         }
 
         public function _init() {
@@ -51,15 +56,13 @@
         }
 
 
+        public function get_settings() {
+            $settings = array (
+                'taxonomy_name' => $this->taxonomy_name
+            );
 
-
-
-
-
-
-
-
-
+            return $settings;
+        }
 
     }
 

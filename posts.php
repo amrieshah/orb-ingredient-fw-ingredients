@@ -40,7 +40,7 @@ $args = array(
     'rewrite' => array( 'slug' => 'ingredient' ),
     'taxonomies' => array('post_tag'),
     'show_in_rest' => true,
-    'supports' => array('title', 'thumbnail',)
+    'supports' => array( 'title', 'thumbnail' )
 );
 register_post_type( 'ingredient', $args  );
 
