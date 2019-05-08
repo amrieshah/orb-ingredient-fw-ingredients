@@ -18,6 +18,9 @@ function _filter_fw_ext_ingredients_template_include( $template ) {
         } else {
             add_filter('the_content', '_filter_fw_ext_ingredients_the_content');
         }
+    } else if (is_tax($ingredients->get_taxonomy_name()) && $ingredients->locate_view_path('taxonomy') ) {
+        
+        return $ingredients->locate_view_path('taxonomy');
     }
 
     return $template;
