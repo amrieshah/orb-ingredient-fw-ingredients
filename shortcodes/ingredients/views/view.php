@@ -6,24 +6,24 @@
  */
 
 
-$post_type = 'ingredient';
+$ingredients = fw()->extensions->get( 'ingredients' );
+$categories = fw()->extensions->get('ingredients')->get_settings();
 $query_post = new WP_Query( array( 
-    'post_type' => $post_type ) );
-
+    'post_type' => $ingredients->get_post_type_name()
+    ) );
 ?>
 
-<?php
-if ( $query_post->have_posts() ) :
-    while ( $query_post->have_posts() ) : $query_post->the_post();
-        $post_id = get_the_ID();
-        if ( $atts['size'] === 'h2' ) : ?>
-            <section style="border: 1px solid yellow">
-                <img src="<?php echo get_the_post_thumbnail_url($post_id, array('100', '100')) ?>" alt="">
-                <h2><?php the_title(); ?></h2>
-                <p><?php echo fw_get_db_post_option($post_id, 'main_function') ?></p>
-                <a href="<?php echo get_permalink($post_id); ?>">Click</a>
-            </section>
-        <?php endif; ?>
-<?php endwhile;
-wp_reset_postdata();
-endif; ?>
+<h5><?php 
+$terms = get_terms($categories['taxonomy_name']);
+    // foreach($terms as $term) {
+    //     echo $term->name;
+    // }
+
+$categories = fw_ext_extension_get_listing_categories( $categories['taxonomy_name'], 'ingredients' );
+
+foreach ($categories as $key => $category) echo $key . $category->name;
+
+var_dump($categories);
+
+?>
+</h5>
