@@ -58,6 +58,7 @@
 
         public function get_settings() {
             $settings = array (
+                'post_type'     => $this->post_type,
                 'taxonomy_name' => $this->taxonomy_name
             );
 
