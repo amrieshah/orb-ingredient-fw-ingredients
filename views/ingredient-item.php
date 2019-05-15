@@ -17,7 +17,19 @@ $taxonomy_name = $ext_ingredients_settings['taxonomy_name'];
         the_post_thumbnail();
         ?>
         <div class="media-links">
-            <a class="abs-link" href="<?php the_permalink(); ?>"></a>
+            <a class="abs-link" href="<?php the_permalink(); ?>"></a>            
         </div>
     </div>
 <?php endif; ?>
+    <!-- <div class> -->
+        <h5>
+            <a href="<?php the_permalink(); ?>">
+                <?php the_title(); ?>
+            </a>
+        </h5>
+        <p><?php echo fw_get_db_post_option(get_the_ID(), 'main_function'); ?></p>
+    <!-- </div> -->
+
+    
+
+    

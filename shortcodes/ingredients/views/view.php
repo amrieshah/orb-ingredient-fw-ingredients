@@ -159,15 +159,17 @@ if ( $atts['show_filters'] ) : ?>
 <?php endif; ?>
 
 <div class="<?php echo esc_attr( $margin_class ); ?>">
-    <div class="isotop_container isotope row masonry-layout"
+    <div class="isotope_container isotope row masonry-layout"
         <?php if ($atts['show_filters']) : ?>
             data-filters=".isotope_filters-<?php echo esc_attr( $unique_id ); ?>">
         <?php endif; ?>
 
         <?php while ($query_post->have_posts() ) : $query_post->the_post(); ?>
             <div class="isotope-item <?php echo esc_attr( $lg_class. ' ' . $md_class . ' ' . $sm_class . ' ' . $xs_class . ' ' . $sort_classes[get_the_ID()] );?>">
-            <?php include( fw()->extensions->get('ingredients')->locate_view_path('ingredient-item') ) ?>            
+            <?php
+            include( fw()->extensions->get('ingredients')->locate_view_path('ingredient-item') );
+            ?>            
             </div>
-        <?php endwhile; ?>
+        <?php endwhile; ?>		
     </div>
 </div>
