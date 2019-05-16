@@ -14,6 +14,8 @@ $origin_options = fw_get_db_post_option( $pID, 'origin' );
 $what_is_it_options = fw_get_db_post_option( $pID, 'what_is_it' );
 $benefits_options = fw_get_db_post_option( $pID, 'benefits' );
 
+$ingredient_details = fw_get_db_post_option( $pID, 'benefit_details' );
+
 $image_alt = get_post_meta( get_post_thumbnail_id($pID), '_wp_attachment_image_alt', true );
 
 ?>
@@ -24,13 +26,16 @@ $image_alt = get_post_meta( get_post_thumbnail_id($pID), '_wp_attachment_image_a
 			<article id="post-<?php the_ID(); ?>" <?php post_class( "toppadding_5" ); ?>>
 
                 <?php if ( has_post_thumbnail()) { ?>
-                    <img src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_html( $image_alt ); ?>" class="alignleft big-margin" />
+                    <img src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_html( $image_alt ); ?>" class="alignleft big-margin"/>
                 <?php } ?>
 
-                <h2 class="section_header">
+                <h2 class=" ">
                     <?php the_title(); ?>
-                </h2>
-                <?php echo $main_function_options,$benefits_options, $origin_options, $what_is_it_options; ?>
+                </h2>                
+                <div class="ingredient-details">
+                    <p><?php echo $what_is_it_options; ?></p>
+                    
+                </div>
 
 			</article><!-- #post-## -->
 		<?php endwhile; ?>
