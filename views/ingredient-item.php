@@ -10,7 +10,7 @@ $taxonomy_name = $ext_ingredients_settings['taxonomy_name'];
 ?>
 
 <?php if ( has_post_thumbnail() ) : ?>
-    <div class="item-media">
+    <div class="item-media ingredient-image-radius">
         <?php 
         $full_image_src = wp_get_attachment_url(
         get_post_thumbnail_id( get_the_ID() ) );
